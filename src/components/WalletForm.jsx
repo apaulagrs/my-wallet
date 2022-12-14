@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { fetchWalletReducer } from '../redux/actions';
+import { fetchWalletReducer, newExpense } from '../redux/actions';
 
 class WalletForm extends Component {
   constructor() {
     super();
     this.state = {
-      expensesValue: 0,
-      expensesDescription: '',
-      currencyType: 'USD',
-      paymentMethod: 'Dinheiro',
-      category: 'Alimentação',
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     };
   }
 
@@ -29,18 +29,42 @@ class WalletForm extends Component {
     event.preventDefault();
 
     const { dispatch } = this.props;
-    const { email } = this.state;
+    const { value,
+      description,
+      currency,
+      method,
+      tag,
+    } = this.state;
 
-    await dispatch(userRequest(email));
+    const allExpenses = {
+      value,
+      description,
+      currency,
+      method,
+      tag,
+    };
+
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const data = await response.json();
+
+    dispatch(newExpense(allExpenses, data));
+
+    this.setState({
+      value: '',
+      description: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
+    });
   };
 
   render() {
     const { currencies } = this.props;
-    const { expensesValue,
-      expensesDescription,
-      currencyType,
-      paymentMethod,
-      category } = this.state;
+    const { value,
+      description,
+      currency,
+      method,
+      tag } = this.state;
 
     return (
       <main>
@@ -49,10 +73,10 @@ class WalletForm extends Component {
             Valor da despesa:
             <input
               type="number"
-              name="expensesValue"
+              name="value"
               id="value-input"
               data-testid="value-input"
-              value={ expensesValue }
+              value={ value }
               onChange={ this.handleChange }
             />
           </label>
@@ -62,10 +86,10 @@ class WalletForm extends Component {
             Descrição da despesa:
             <input
               type="text"
-              name="expensesDescription"
+              name="description"
               id="description-input"
               data-testid="description-input"
-              value={ expensesDescription }
+              value={ description }
               onChange={ this.handleChange }
             />
           </label>
@@ -74,10 +98,10 @@ class WalletForm extends Component {
           <label htmlFor="currency-input">
             Moeda:
             <select
-              name="currencyType"
+              name="currency"
               id="currency-input"
               data-testid="currency-input"
-              selected={ currencyType }
+              selected={ currency }
               onChange={ this.handleChange }
             >
               {
@@ -96,10 +120,10 @@ class WalletForm extends Component {
           <label htmlFor="method-input">
             Método de pagamento:
             <select
-              name="paymentMethod"
+              name="method"
               id="method-input"
               data-testid="method-input"
-              selected={ paymentMethod }
+              selected={ method }
               onChange={ this.handleChange }
             >
               <option value="Dinheiro">Dinheiro</option>
@@ -112,10 +136,10 @@ class WalletForm extends Component {
           <label htmlFor="tag-input">
             Categoria:
             <select
-              name="category"
+              name="tag"
               id="tag-input"
               data-testid="tag-input"
-              selected={ category }
+              selected={ tag }
               onChange={ this.handleChange }
             >
               <option value="Alimentação">Alimentação</option>
@@ -140,6 +164,7 @@ class WalletForm extends Component {
 }
 
 WalletForm.propTypes = {
+  dispatch: PropTypes.func,
   currencies: PropTypes.arrayOf(PropTypes.shape({})),
   expenses: PropTypes.arrayOf(PropTypes.shape({})),
 }.isRequired;
