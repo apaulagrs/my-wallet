@@ -25,6 +25,15 @@ class WalletForm extends Component {
     this.setState({ [name]: value });
   };
 
+  buttonClick = async (event) => {
+    event.preventDefault();
+
+    const { dispatch } = this.props;
+    const { email } = this.state;
+
+    await dispatch(userRequest(email));
+  };
+
   render() {
     const { currencies } = this.props;
     const { expensesValue,
@@ -117,6 +126,14 @@ class WalletForm extends Component {
             </select>
           </label>
         </div>
+        <div>
+          <button
+            type="button"
+            onClick={ this.buttonClick }
+          >
+            Adicionar despesa
+          </button>
+        </div>
       </main>
     );
   }
@@ -124,10 +141,12 @@ class WalletForm extends Component {
 
 WalletForm.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.shape({})),
+  expenses: PropTypes.arrayOf(PropTypes.shape({})),
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
+  expenses: state.wallet.expenses,
 });
 
 export default connect(mapStateToProps)(WalletForm);
