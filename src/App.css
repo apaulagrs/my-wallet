@@ -22,6 +22,6 @@ div {
   text-align: center;
 }
 
-span {
+span , p {
   margin: 10px;
 }
