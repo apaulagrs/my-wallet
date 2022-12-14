@@ -33,34 +33,40 @@ class Login extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor="email">
-          Email:
-          <input
-            type="email"
-            id="email"
-            data-testid="email-input"
-            required
-            onChange={ ({ target }) => this.setState({ email: target.value }) }
-          />
-        </label>
-        <label htmlFor="password">
-          Password:
-          <input
-            type="password"
-            id="password"
-            data-testid="password-input"
-            minLength={ 6 }
-            required
-            onChange={ ({ target }) => this.setState({ password: target.value }) }
-          />
-        </label>
-        <button
-          type="button"
-          disabled={ !this.emailValidation() }
-          onClick={ this.buttonClick }
-        >
-          Entrar
-        </button>
+        <div>
+          <label htmlFor="email">
+            Email:
+            <input
+              type="email"
+              id="email"
+              data-testid="email-input"
+              required
+              onChange={ ({ target }) => this.setState({ email: target.value }) }
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="password">
+            Password:
+            <input
+              type="password"
+              id="password"
+              data-testid="password-input"
+              minLength={ 6 }
+              required
+              onChange={ ({ target }) => this.setState({ password: target.value }) }
+            />
+          </label>
+        </div>
+        <div>
+          <button
+            type="button"
+            disabled={ !this.emailValidation() }
+            onClick={ this.buttonClick }
+          >
+            Entrar
+          </button>
+        </div>
       </div>
     );
   }
