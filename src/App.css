@@ -1,10 +1,13 @@
 body {
-  background-color: #282c34;
+  background-color: #273346;
   color: white;
 }
 
 header {
   background-color: #525357;
+  border: 1px solid;
+  border-color: #5f6064;
+  border-radius: 0.2em;
   display: flex;
   font-size: calc(10px + 2vmin);
   justify-content: center;
@@ -24,4 +27,26 @@ div {
 
 span , p {
   margin: 10px;
+}
+
+thead , tbody {
+  margin: 10px;
+}
+
+th {
+  background-color: #525357;
+  border: 1px solid;
+  border-color: #5f6064;
+  border-radius: 0.2em;
+  margin: 10px;
+  padding: 10px;
+}
+
+td {
+  background-color: #a1a1a3;
+  border: 1px solid;
+  border-color: #b6b6b6;
+  border-radius: 0.2em;
+  color: black;
+  padding: 0.5em;
 }

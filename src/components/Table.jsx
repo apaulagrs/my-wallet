@@ -27,21 +27,24 @@ class Table extends Component {
                 id,
                 description,
                 tag,
+                currency,
                 method,
                 value,
-                currency,
+                exchangeRates,
               } = e;
+              const convertCurrencieValue = +exchangeRates[currency].ask * value;
+
               return (
                 <tr key={ id }>
-                  <th>{description}</th>
-                  <th>{tag}</th>
-                  <th>{method}</th>
-                  <th>{value}</th>
-                  <th>{currency}</th>
-                  <th>Câmbio utilizado</th>
-                  <th>Valor convertido</th>
-                  <th>Moeda de conversão</th>
-                  <th>Editar/Excluir</th>
+                  <td>{description}</td>
+                  <td>{tag}</td>
+                  <td>{method}</td>
+                  <td>{(+value).toFixed(2)}</td>
+                  <td>{exchangeRates[currency].name}</td>
+                  <td>{(+exchangeRates[currency].ask).toFixed(2)}</td>
+                  <td>{convertCurrencieValue.toFixed(2)}</td>
+                  <td>Real</td>
+                  <td>Editar/Excluir</td>
                 </tr>
               );
             })
