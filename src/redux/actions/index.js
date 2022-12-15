@@ -1,6 +1,7 @@
 // Coloque aqui suas actions
 export const USER = 'USER';
 export const ADD_NEW_EXPENSE = 'ADD_NEW_EXPENSE';
+export const INIT_EDIT_EXPENSE = 'INIT_EDIT_EXPENSE';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const REQUEST_DATA_WALLET = 'REQUEST_DATA_WALLET';
 export const REQUEST_DATA_WALLET_SUCCESS = 'REQUEST_DATA_WALLET_SUCCESS';
@@ -17,6 +18,10 @@ export const newExpense = (wallet, currencies) => ({
     wallet,
     currencies,
   },
+});
+
+export const initEditExpense = () => ({
+  type: INIT_EDIT_EXPENSE,
 });
 
 export const deleteExpense = (id) => ({

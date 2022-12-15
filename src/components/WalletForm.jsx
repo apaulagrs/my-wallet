@@ -56,12 +56,14 @@ class WalletForm extends Component {
   };
 
   render() {
-    const { currencies } = this.props;
+    const { currencies, editor } = this.props;
     const { value,
       description,
       currency,
       method,
       tag } = this.state;
+
+    console.log(editor);
 
     return (
       <main>
@@ -148,12 +150,23 @@ class WalletForm extends Component {
           </label>
         </div>
         <div>
-          <button
-            type="button"
-            onClick={ this.buttonClick }
-          >
-            Adicionar despesa
-          </button>
+          {
+            !editor ? (
+              <button
+                type="button"
+                onClick={ this.buttonClick }
+              >
+                Adicionar despesa
+              </button>
+            ) : (
+              <button
+                type="button"
+                onClick={ () => console.log('dispatch(initEditExpense(id))') }
+              >
+                Editar despesa
+              </button>
+            )
+          }
         </div>
       </main>
     );
@@ -164,11 +177,13 @@ WalletForm.propTypes = {
   dispatch: PropTypes.func,
   currencies: PropTypes.arrayOf(PropTypes.shape({})),
   expenses: PropTypes.arrayOf(PropTypes.shape({})),
+  editor: PropTypes.bool,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   currencies: state.wallet.currencies,
   expenses: state.wallet.expenses,
+  editor: state.wallet.editor,
 });
 
 export default connect(mapStateToProps)(WalletForm);
