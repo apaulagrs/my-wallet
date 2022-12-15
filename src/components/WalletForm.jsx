@@ -52,9 +52,6 @@ class WalletForm extends Component {
     this.setState({
       value: '',
       description: '',
-      currency: 'USD',
-      method: 'Dinheiro',
-      tag: 'Alimentação',
     });
   };
 

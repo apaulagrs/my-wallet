@@ -1,6 +1,7 @@
 // Coloque aqui suas actions
 export const USER = 'USER';
 export const ADD_NEW_EXPENSE = 'ADD_NEW_EXPENSE';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const REQUEST_DATA_WALLET = 'REQUEST_DATA_WALLET';
 export const REQUEST_DATA_WALLET_SUCCESS = 'REQUEST_DATA_WALLET_SUCCESS';
 export const REQUEST_DATA_WALLET_ERROR = 'REQUEST_DATA_WALLET_ERROR';
@@ -16,6 +17,11 @@ export const newExpense = (wallet, currencies) => ({
     wallet,
     currencies,
   },
+});
+
+export const deleteExpense = (id) => ({
+  type: DELETE_EXPENSE,
+  id,
 });
 
 const requestDataWallet = () => ({

@@ -5,9 +5,10 @@ import PropTypes from 'prop-types';
 class Header extends Component {
   totalExpenses = () => {
     const { expenses } = this.props;
+    const zero = 0;
 
     if (!expenses.length) {
-      return '0';
+      return zero.toFixed(2);
     }
 
     const totalSum = expenses.reduce(
