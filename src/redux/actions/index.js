@@ -2,6 +2,7 @@
 export const USER = 'USER';
 export const ADD_NEW_EXPENSE = 'ADD_NEW_EXPENSE';
 export const INIT_EDIT_EXPENSE = 'INIT_EDIT_EXPENSE';
+export const FINAL_EDIT_EXPENSE = 'FINAL_EDIT_EXPENSE';
 export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 export const REQUEST_DATA_WALLET = 'REQUEST_DATA_WALLET';
 export const REQUEST_DATA_WALLET_SUCCESS = 'REQUEST_DATA_WALLET_SUCCESS';
@@ -20,8 +21,14 @@ export const newExpense = (wallet, currencies) => ({
   },
 });
 
-export const initEditExpense = () => ({
+export const initEditExpense = (edit) => ({
   type: INIT_EDIT_EXPENSE,
+  payload: edit,
+});
+
+export const finalEditExpense = (edit) => ({
+  type: FINAL_EDIT_EXPENSE,
+  payload: edit,
 });
 
 export const deleteExpense = (id) => ({
