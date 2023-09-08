@@ -1,10 +1,48 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# My Wallet
+
+# Contexto
+Carteira de controle de gastos com conversor de moedas. Ao utilizar essa aplicação um usuário deverá ser capaz de: 
+ - Adicionar, remover e editar um gasto;
+ - Visualizar uma tabelas com seus gastos;
+ - Visualizar o total de gastos convertidos para uma moeda de escolha; 
+
+## Tecnologias utilizadas
+
+> Redux (store, reducers, actions, dispatchers) conectado a React e utilização de actions assíncronas.
+
+
+## Instalando Dependências
+
+```bash
+npm install
+``` 
+
+## Executando aplicação
+
+  ```
+ npm start
+  ```
+
+## Executando Testes
+
+* Para rodar todos os testes localmente:
+
+  ```
+    npm run cy
+  ```
+* Para ter um resultado visual dos testes:
+
+```
+   npm run cy:open
+```
+
+## TRYBE
+Este projeto foi desenvolvido enquanto estudante de Desenvolvimento Web na <a href="https://www.betrybe.com/">Trybe</a>!
+
+Diretórios desenvolvidos/alterados por mim:
+-src
+  | App.css
+  | App.js
+  |/components
+  |/pages
+  |/redux
