@@ -19,17 +19,17 @@ npm install
 
 ## Executando aplicação
 
-  ```
+```
  npm start
-  ```
+```
 
 ## Executando Testes
 
 * Para rodar todos os testes localmente:
 
-  ```
-    npm run cy
-  ```
+```
+  npm run cy
+```
 * Para ter um resultado visual dos testes:
 
 ```
