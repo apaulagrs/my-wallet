@@ -40,7 +40,9 @@ npm run cy:open
 Este projeto foi desenvolvido enquanto estudante de Desenvolvimento Web na <a href="https://www.betrybe.com/">Trybe</a>!
 
 Diretórios desenvolvidos/alterados por mim:
+
 -src
+
   | App.css
   | App.js
   |/components
