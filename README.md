@@ -23,19 +23,6 @@ npm install
 npm start
 ```
 
-## Executando Testes
-
-* Para rodar todos os testes localmente:
-
-```bash
-npm run cy
-```
-* Para ter um resultado visual dos testes:
-
-```bash
-npm run cy:open
-```
-
 ## TRYBE
 Este projeto foi desenvolvido enquanto estudante de Desenvolvimento Web na <a href="https://www.betrybe.com/">Trybe</a>!
 
